@@ -1,24 +1,60 @@
+# IE Code Challenge 1 - Pacman Simulator
+# Test data (example input and output)
+
+# TestData1 ------
+# PLACE 0,0,NORTH
+# MOVE
+# REPORT
+# Output: 0,1,NORTH
+
+# TestData2 ------
+# PLACE 0,0,NORTH
+# LEFT
+# REPORT
+# Output: 0,0,WEST
+
+# TestData3 ------
+# PLACE 1,2,EAST
+# MOVE
+# MOVE
+# LEFT
+# MOVE
+# REPORT
+# Output: 3,3,NORTH
+
+# TestData4 (test that first valid command is PLACE command) ------
+# REPORT
+# Output: Invalid input
+
+# TestData5 (test out of bounds coordinates) ------
+# PLACE 1,2,NORTH
+# PLACE 6,6,NORTH
+# REPORT
+# Output: 1,2,NORTH
+
+# TestData6 (test out of bounds coordinates) ------
+# PLACE 1,2,NORTH
+# PLACE -1,-1,NORTH
+# REPORT
+# Output: 1,2,NORTH
+
+# TestData7 ------
+# PLACE 1,2,NORTH
+# LEFT
+# MOVE
+# RIGHT
+# MOVE
+# MOVE
+# LEFT
+# REPORT
+# Output: 0,4,WEST
+
 class Player:
     X = 0
     Y = 0
     F = "NORTH"
 
 player = Player()
-
-# def start():
-#     while True:
-#         try:
-#             command = input('enter command: ')
-#             place, string = command.split(" ")
-#             actual = string.split(",")
-#             player.X = int(actual[0])
-#             player.Y = int(actual[1])
-#             player.F = actual[2]
-#             if player.X < 0 or player.X > 4 or player.Y < 0 or player.Y > 4:
-#                 raise ValueError #this will send it to the print message and back to the input option
-#             break
-#         except ValueError:
-#             print("Invalid input")
 
 def pacman():
     while True:
@@ -33,7 +69,7 @@ def pacman():
                 raise ValueError #this will send it to the print message and back to the input option
             break
         except ValueError:
-            print("Invalid input")
+            print("Output: Invalid input")
     flag = True
     while flag:
         if "PLACE" in command:
@@ -64,7 +100,7 @@ def pacman():
                 player.X = player.X - 1
                 command = input('enter command: ')
             else:
-                print('invalid command')
+                print('Output: invalid command')
                 flag = False
         elif command == "REPORT":
             print("Output:",player.X,",",player.Y,",",player.F)
@@ -83,7 +119,7 @@ def pacman():
                 player.F = "NORTH"
                 command = input('enter command: ')
             else:
-                print('invalid command')
+                print('Output: invalid command')
                 flag = False
         elif command == "LEFT":
             if player.F == "NORTH":
@@ -99,7 +135,7 @@ def pacman():
                 player.F = "SOUTH"
                 command = input('enter command: ')
             else:
-                print('invalid command')
+                print('Output: invalid command')
                 flag = False
         elif command == "END":
             break
@@ -108,3 +144,4 @@ def pacman():
 
 
 pacman()
+
