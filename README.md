@@ -7,11 +7,13 @@ by Nimaya Kodikara
 2. Execute pacman.py script based upon your OS (https://stackoverflow.com/questions/51448782/run-a-python-script-without-the-ide)
 
 Windows
+
 Create a .bat file in which you need there needs to the command to execute your python file.
 
 e.g. c:\python27\python.exe c:\somescript.py %*
 
 MacOS / Linux
+
 Create a .sh file which can be executed from your shell/terminal or by double clicking its sym link. 
 Your .sh file will look like
 
